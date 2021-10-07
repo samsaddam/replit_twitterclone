@@ -1,6 +1,7 @@
 # from typing_extensions import Required
 from django import forms
-from django.http.response import HttpResponseBase, HttpResponseRedirect
+from django.forms.fields import ImageField
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
@@ -15,11 +16,11 @@ def index(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         # img = PostForm(request.FILES)
-        print(form)
+        # print(form)
     # If the form is valid
         if form.is_valid():
             # form.image = img
-            #yes, save
+            # yes, save
             form.save()
           # Redirect to home
             return HttpResponseRedirect('/')
@@ -42,21 +43,34 @@ def delete(request, post_id):
     return HttpResponseRedirect('/')
 
 
+def like(request, post_id):
+    newlikecount = Post.objects.get(id=post_id)
+    newlikecount.like_count += 1
+    newlikecount.save()
+    return HttpResponseRedirect('/')
+
+
 def edit(request, post_id):
-    post = Post.objects.get(id=post_id)
+    posts = Post.objects.get(id=post_id)
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=posts)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
         else:
-            return HttpResponseRedirect(form.errors.as_json())
-    return render(request, 'edit.html', {'post': post})
+            return HttpResponseRedirect("not valid")
+    form = PostForm
+    return render(request, "edit.html", {"posts": posts})
 
-
-def like(request, post_id):
-    post = Post.objects.get(id=post_id)
-    newlikecount = post.like_count+1
-    post.like_count = newlikecount
-    post.save()
-    return HttpResponseRedirect('/')
+# def edit(request, post_id):
+#     if request.method == "GET":
+#         posts = Post.objects.get(id=post_id)
+#         return render(request, "edit.html", {"posts": posts})
+#     if request.method == "POST":
+#         editposts = Post.objects.get(id=post_id)
+#         form = PostForm(request.POST, request.FILES, instance=editposts)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect("/")
+#         else:
+#             return HttpResponse("not valid")
