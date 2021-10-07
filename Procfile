@@ -1,1 +1,1 @@
-web: gunicorn TwitterClone.wsgi
+web: gunicorn django_forum.wsgi
