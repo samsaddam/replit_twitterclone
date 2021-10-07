@@ -92,7 +92,12 @@ DATABASES = {
         'Password': '8ad13090ad4308f2da81cfcd41318d5772f459e52c15a14ab06e88474078b1b4'
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
