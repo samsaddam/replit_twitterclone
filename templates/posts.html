@@ -6,8 +6,9 @@
     <a href="#">Home</a>
   </div>
   <section class="post_form">
-    <form action="/" method="POST" enctype="multipart/form-data">
-      {% csrf_token %} {{form.as_p}}
+    <!-- <form action="/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
 
       <input type="text" name="name" placeholder="Name" required /><br />
       <textarea name="body" placeholder="What's happening" required></textarea>
@@ -15,6 +16,18 @@
       <div class="tweet">
         <input id="btn" type="submit" value="Tweet" />
       </div>
+    </form> -->
+    <form action="/" method="POST" enctype="multipart/form-data">
+      {%csrf_token %}
+      <input type="text" name="name" placeholder="Name" required />
+      <textarea
+        name="body"
+        rows="5"
+        placeholder="What's happening"
+        required
+      ></textarea>
+      <input id="uploadfile" type="file" name="image" />
+      <input id="btn" type="submit" value="Tweet" />
     </form>
   </section>
   <section class="posts">

@@ -14,11 +14,11 @@ def index(request):
     # if the method is POST
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        img = PostForm(request.FILES)
+        # img = PostForm(request.FILES)
         print(form)
     # If the form is valid
         if form.is_valid():
-            form.image = img
+            # form.image = img
             #yes, save
             form.save()
           # Redirect to home
