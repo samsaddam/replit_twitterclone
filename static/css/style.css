@@ -3,11 +3,17 @@
 html,
 body {
   height: 100%;
+  background-color: rgb(192, 241, 241);
 }
 
 .content {
   max-width: 600px;
   height: 100%;
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+.bordert {
+  max-width: 600px;
   margin: 0 auto;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
@@ -58,6 +64,9 @@ body {
   overflow: hidden;
   background-color: none;
 }
+.Image {
+  height: 350px;
+}
 #btn {
   width: 20%;
   background-color: rgb(29, 161, 242);
@@ -66,12 +75,13 @@ body {
   font-weight: bold;
   border-radius: 5%;
   border: 1px solid transparent;
-  padding: 10px;
+  padding: 9px;
   border: 1px solid rgb(29, 161, 242);
   cursor: pointer;
+  padding-bottom: 11px;
 }
 #btnn {
-  width: 20%;
+  width: 10%;
   background-color: rgb(145, 162, 173);
   color: white;
   font-size: 15px;
@@ -82,6 +92,8 @@ body {
   border: 1px solid rgb(145, 162, 173);
   cursor: pointer;
   text-decoration: none;
+  display: inline-block;
+  margin-left: 65%;
 }
 #btnn:hover {
   background-color: rgb(44, 44, 46);
@@ -163,6 +175,9 @@ body {
     justify-content: center;
     padding-left: 10px;
   }
+  .Image {
+    height: 250px;
+  }
 
   #btn {
     width: 20%;
@@ -170,9 +185,10 @@ body {
     padding: 5px;
   }
   #btnn {
-    width: 20%;
+    width: 15%;
     font-size: 12px;
     /* border: hidden; */
     padding: 5px;
+    margin-left: 100px;
   }
 }

@@ -45,7 +45,7 @@ def delete(request, post_id):
 
 def like(request, post_id):
     newlikecount = Post.objects.get(id=post_id)
-    newlikecount.like_count += 1
+    newlikecount.likecount += 1
     newlikecount.save()
     return HttpResponseRedirect('/')
 
