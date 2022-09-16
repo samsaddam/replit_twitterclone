@@ -15,15 +15,18 @@ body {
 .bordert {
   max-width: 600px;
   margin: 0 auto;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid rgb(29, 161, 242);
+  border-right: 1px solid rgb(29, 161, 242);
 }
 .header {
-  margin: 0 auto;
   padding: 10px;
-  border-bottom: 1px solid rgb(235, 238, 240);
+  border-bottom: 1px solid rgb(29, 161, 242);
   display: flex;
   align-items: center;
+}
+.header img{
+  width: 55px;
+  
 }
 .logo {
   height: 50px;
@@ -34,16 +37,18 @@ body {
   font-size: 25px;
   font-weight: bold;
   text-decoration: none;
-  margin-bottom: 0px;
-  line-height: 20px;
   color: rgb(29, 161, 242);
-  padding-bottom: 30px;
-  padding-top: 30px;
-  /* text-align: center; */
+  padding-left: 20px;
+  
 }
 .post_form {
-  padding: 20px 40px;
-  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid rgb(29, 161, 242);
+}
+.my-icon img{
+  width: 60px;
+  padding: 0px 10px;
 }
 .post_form input {
   width: 80%;
@@ -58,7 +63,7 @@ body {
 }
 
 #uploadfile {
-  width: 40%;
+  width: 45%;
   padding-top: 20px;
   border: hidden;
   overflow: hidden;
@@ -73,12 +78,11 @@ body {
   color: white;
   font-size: 15px;
   font-weight: bold;
-  border-radius: 5%;
-  border: 1px solid transparent;
+  border-radius: 10px;
   padding: 9px;
   border: 1px solid rgb(29, 161, 242);
   cursor: pointer;
-  padding-bottom: 11px;
+  /* padding-bottom: 11px; */
 }
 #btnn {
   width: 10%;
@@ -120,7 +124,7 @@ body {
 .posts li {
   position: relative;
   display: flex;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(29, 161, 242);
   padding: 20px 40px;
   list-style: none;
 }
@@ -130,6 +134,7 @@ body {
   position: absolute;
   right: 30px;
   top: 18px;
+  cursor: pointer;
 }
 
 .posts li .menu {
@@ -137,7 +142,7 @@ body {
   position: absolute;
   top: 40px;
   right: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(29, 161, 242);
   background-color: #ccc;
   padding: 10px 15px;
   font-size: 13px;
@@ -146,6 +151,10 @@ body {
 
 .posts li .menu a {
   text-decoration: none;
+  color: black;
+}
+.menu a:hover {
+  background-color: whitesmoke;
 }
 
 .posts li .logo {
@@ -160,6 +169,8 @@ body {
 
 .posts li .name_body .name {
   font-weight: bold;
+  color: rgb(29, 161, 242);
+  font-size: 20px;
 }
 
 .posts li .name_body .datetime {
@@ -176,7 +187,7 @@ body {
     padding-left: 10px;
   }
   .Image {
-    height: 250px;
+    height: 200px;
   }
 
   #btn {

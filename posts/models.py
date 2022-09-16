@@ -15,14 +15,17 @@ class Post(models.Model):
     body = models.CharField(
         'Body', blank=True, null=True, max_length=140, db_index=True
     )
-
+    # ip = models.CharField(
+    #     "ip", blank=True, max_length= 100
+    # )
     image = CloudinaryField(
         'image', blank=True, db_index=True
     )
-    likecount = models.IntegerField(
+    likecount = models.PositiveIntegerField(
         'like_count', default=0, blank=True
     )
 
     created_at = models.DateTimeField(
         'Created DateTime', blank=True, auto_now_add=True
     )
+    

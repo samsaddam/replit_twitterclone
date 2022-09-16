@@ -2,10 +2,15 @@
 <div class="bordert">
   <section class="content">
     <div class="header">
-      <img src="/static/img/twitter.png" class="logo" />
-      <a href="#">Home</a>
+      <img src="/static/img/twitter.png"/>
+      <a href="/">Home</a>
     </div>
     <section class="post_form">
+      <!-- <div class="tweet-form"> -->
+        <div class="my-icon">
+          <img src="{% static 'img/user.png' %}" />
+        </div>
+        <div class="input-form">
       <form action="/" method="POST" enctype="multipart/form-data">
         {%csrf_token %}
         <input type="text" name="name" placeholder="Name" required />
@@ -18,6 +23,8 @@
         <input id="uploadfile" type="file" name="image" />
         <input id="btn" type="submit" value="Tweet" />
       </form>
+      </div>
+      <!-- </div> -->
     </section>
     <section class="posts">
       <ul>
@@ -28,20 +35,21 @@
             src="{% static 'img/menu.png' %}"
           />
           <div class="menu">
-            <a href="edit/{{post.id}}">edit</a><br />
-            <a href="delete/{{ post.id }}">delete</a>
+            <a href="edit/{{post.id}}">Edit</a><br />
+            <a href="delete/{{ post.id }}">Delete</a>
           </div>
 
           <div class="logo">
             <img src="{% static 'img/user.png' %}" />
           </div>
           <div class="name_body">
-            <div class="name">{{post.name}} <br /></div>
+            <div class="name">{{post.name}} {{post.created}}<br /></div>
             <div class="datetime">{{post.created_at}} <br /></div>
             <p>{{post.body}} <br /></p>
+            <!-- <p>{{post.ip}}</p> -->
             <!-- <a href="/delete/{{ post.id }}/">delete</a> -->
             <!-- {% if post.image.url %} -->
-            <img class="Image" src="{{post.image.url}}" />
+            <img class="Image" src="{{post.image.url}}"  style="width: 250px; height: 200px; border-radius: 20px;"/>
             <!-- {% endif %} -->
             <div>
               <a href="/like/{{post.id}}">

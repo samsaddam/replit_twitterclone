@@ -32,7 +32,12 @@ SECRET_KEY = 'django-insecure-b$@4h1__l6fsjd-l!oend03fhn^icc-wca9vp^cc&6q9z^95w+
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ['*']
+X_FRAME_OPTIONS = '*'
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = [
+    'http://0.0.0.0:3000', 'https://Replit-Twiiterclone.saddamhussain8.repl.co'
+]
 
 # Application definition
 
@@ -45,11 +50,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'cloudinary',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,22 +91,22 @@ WSGI_APPLICATION = 'django_forum.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7spe36v5tikbr',
-        'USER': 'cebkoufjlncase',
-        'HOST': 'ec2-34-205-14-168.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'PASSWORD': '8ad13090ad4308f2da81cfcd41318d5772f459e52c15a14ab06e88474078b1b4',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd7spe36v5tikbr',
+#         'USER': 'cebkoufjlncase',
+#         'HOST': 'ec2-34-205-14-168.compute-1.amazonaws.com',
+#         'PORT': 5432,
+#         'PASSWORD': '8ad13090ad4308f2da81cfcd41318d5772f459e52c15a14ab06e88474078b1b4',
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

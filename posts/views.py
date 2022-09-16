@@ -1,4 +1,5 @@
 # from typing_extensions import Required
+import math
 from django import forms
 from django.forms.fields import ImageField
 from django.http.response import HttpResponseRedirect
@@ -6,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
-# from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy, reverse
 # from cloudinary.forms import cl_init_js_callbacks
 # Create your views here.
 
@@ -15,11 +16,11 @@ def index(request):
     # if the method is POST
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        # img = PostForm(request.FILES)
-        # print(form)
+        
+        
     # If the form is valid
         if form.is_valid():
-            # form.image = img
+          
             # yes, save
             form.save()
           # Redirect to home
@@ -50,6 +51,7 @@ def like(request, post_id):
     return HttpResponseRedirect('/')
 
 
+
 def edit(request, post_id):
     posts = Post.objects.get(id=post_id)
     if request.method == 'POST':
@@ -62,15 +64,4 @@ def edit(request, post_id):
     form = PostForm
     return render(request, "edit.html", {"posts": posts})
 
-# def edit(request, post_id):
-#     if request.method == "GET":
-#         posts = Post.objects.get(id=post_id)
-#         return render(request, "edit.html", {"posts": posts})
-#     if request.method == "POST":
-#         editposts = Post.objects.get(id=post_id)
-#         form = PostForm(request.POST, request.FILES, instance=editposts)
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect("/")
-#         else:
-#             return HttpResponse("not valid")
+
